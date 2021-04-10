@@ -1,11 +1,11 @@
 -- phpMyAdmin SQL Dump
--- version 5.1.0
+-- version 5.0.4
 -- https://www.phpmyadmin.net/
 --
--- Host: mysql
--- Generation Time: Apr 10, 2021 at 03:15 PM
--- Server version: 10.5.9-MariaDB-1:10.5.9+maria~focal
--- PHP Version: 7.4.15
+-- Host: remotemysql.com
+-- Generation Time: Apr 06, 2021 at 01:50 PM
+-- Server version: 8.0.13-4
+-- PHP Version: 7.2.24-0ubuntu0.18.04.6
 
 SET SQL_MODE = "NO_AUTO_VALUE_ON_ZERO";
 START TRANSACTION;
@@ -68,10 +68,12 @@ CREATE TABLE `employees` (
 --
 
 INSERT INTO `employees` (`employee_id`, `first_name`, `last_name`, `email`, `company_id`) VALUES
+(1, 'Samuel', 'Leplubo', 'uhacked@phoque.you', 8),
 (4, 'Charlotte', 'Aux fraises lol', 'ostreiculture@imfucked.com', 7),
+(5, 'Pierre', 'Quiroule', 'namaspasmous@pailletes.com', 3),
 (6, 'Adriano', 'Lepasplusbo', 'adrien@pasitalien.com', 8),
-(8, 'TARIQ', 'SELAWI', 'selawi@gmail.com', 9),
-(9, 'Ibrahim', 'Selawi', 'ibrahim@gmail.com', 9);
+(7, 'Max', 'Max', 'max@gmail.com', 8),
+(8, 'TARIQ', 'SELAWI', 'selawi@gmail.com', 9);
 
 -- --------------------------------------------------------
 
@@ -95,34 +97,10 @@ INSERT INTO `invoices` (`invoice_id`, `invoice_number`, `invoice_date`, `company
 (1, 1278155, '2019-09-29', 2, 6),
 (2, 1224545, '2020-10-21', 4, 6),
 (3, 4758864, '2018-09-11', 7, 1),
-(19, 1001009, '2005-03-11', 2, 4),
-(20, 1001009, '2004-03-25', 9, 6),
-(21, 10022009, '2006-03-25', 2, 4),
-(26, 8011108, '2014-03-25', 4, 8),
-(28, 82260016, '2013-03-25', 9, 4);
-
--- --------------------------------------------------------
-
---
--- Table structure for table `login`
---
-
-CREATE TABLE `login` (
-  `id` int(11) NOT NULL,
-  `username` varchar(50) NOT NULL,
-  `password` varchar(255) NOT NULL,
-  `function` set('manager','admin','user','') DEFAULT 'user'
-) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4;
-
---
--- Dumping data for table `login`
---
-
-INSERT INTO `login` (`id`, `username`, `password`, `function`) VALUES
-(1, 'Jean-Christian', '1234', 'manager'),
-(2, 'admin', '1234', 'admin'),
-(3, 'user', '1234', 'user'),
-(4, 'tariq', '$2y$10$Sa1GEy9sgqXlPpVcaFW1DORuZlPm9gBcm1ygNcK1pOs3gHmfH5ffu', 'user');
+(4, 8785594, '1987-09-29', 6, 6),
+(5, 2888577, '2018-07-05', 8, 1),
+(7, 8004008, '2018-07-05', 5, 1),
+(8, 9004009, '2021-03-07', 9, 4);
 
 -- --------------------------------------------------------
 
@@ -167,15 +145,7 @@ ALTER TABLE `employees`
 ALTER TABLE `invoices`
   ADD PRIMARY KEY (`invoice_id`),
   ADD KEY `company_id` (`company_id`),
-  ADD KEY `employee_id` (`employee_id`),
-  ADD KEY `company_id_2` (`company_id`);
-
---
--- Indexes for table `login`
---
-ALTER TABLE `login`
-  ADD PRIMARY KEY (`id`),
-  ADD UNIQUE KEY `username` (`username`);
+  ADD KEY `employee_id` (`employee_id`);
 
 --
 -- Indexes for table `type_of_company`
@@ -191,25 +161,19 @@ ALTER TABLE `type_of_company`
 -- AUTO_INCREMENT for table `companies`
 --
 ALTER TABLE `companies`
-  MODIFY `company_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=17;
+  MODIFY `company_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=10;
 
 --
 -- AUTO_INCREMENT for table `employees`
 --
 ALTER TABLE `employees`
-  MODIFY `employee_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=11;
+  MODIFY `employee_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `invoices`
 --
 ALTER TABLE `invoices`
-  MODIFY `invoice_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=30;
-
---
--- AUTO_INCREMENT for table `login`
---
-ALTER TABLE `login`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
+  MODIFY `invoice_id` int(20) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=9;
 
 --
 -- AUTO_INCREMENT for table `type_of_company`

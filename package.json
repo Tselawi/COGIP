@@ -1,5 +1,5 @@
 {
-  "name": "PHP-project-cogip",
+  "name": "y",
   "version": "1.0.0",
   "description": "## Objectives : * Using different `URL`. * `Sanitization` to avoid SQL. * `Validation` of Data. * `Relational` database. * Correct `join` in SQL. * Using `Aliases` in SQL request. * Implementation of a `GRUD`.",
   "main": "index.js",
@@ -8,16 +8,17 @@
   },
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/Tselawi/COGIP.git"
+    "url": "git+https://github.com/Ooverz/Cogip_php.git"
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
   "bugs": {
-    "url": "https://github.com/Tselawi/COGIP/issues"
+    "url": "https://github.com/Ooverz/Cogip_php/issues"
   },
-  "homepage": "https://github.com/Tselawi/COGIP#readme",
+  "homepage": "https://github.com/Ooverz/Cogip_php#readme",
   "dependencies": {
+    "bootstrap": "^5.0.0-beta3",
     "node-sass": "^5.0.0"
   }
 }
