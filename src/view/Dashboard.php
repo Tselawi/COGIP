@@ -1,27 +1,11 @@
-<?php
+<?php require_once("include/header.php"); ?>
 
-require_once("include/header.php");
-
-
-
-
-
-if (isset($_POST['invoice'])) {
-
-$invoices->setInvoice();
-$invoiceNumber= tirm($_POST['invoice_number']);
-$invoiceDate= tirm($_POST['invoice_date']);
-$companyName= $_POST['company_name'];
-$contactName= $_POST['first_name'] .' '. $_POST['last_name'];
-
-}
-
-
-?>
 <h2 class="my-4 d-flex justify-content-center"> Welcome to COGIP </h2>
 <p class="mx-3 fs-2 mx-4">HELLO !</p>
 <p class="mx-3 fs-2 mx-4">What would you like to do today ?</p>
-<!-- Modal invoice-->
+
+<!-- -------------------------------########### Modal invoice ########### -------------------------------- -->
+
 <div class="modal fade" id="newinvoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
@@ -32,35 +16,43 @@ $contactName= $_POST['first_name'] .' '. $_POST['last_name'];
         </button>
       </div>
 
-      <form method="post" action="">
+      <form method="POST" action="">
 
         <div class="modal-body">
 
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="invoice" class="badge bg-dark my-1">Invoice Number :</label>
-              <input type="text" placeholder="Enter your invoice number" name="invoice_number" id="invoiceNumber" class="form-control" value="" required>
+              <input type="text" placeholder="Enter your invoice number" name="invoice_number" id="invoiceNumber" class="form-control" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="date" class="badge bg-dark my-1">Invoice Date :</label>
-              <input type="text" placeholder="Enter your invoice date" name="invoice_date" id="invoiceDate" class="form-control" value="" required>
+              <input type="text" placeholder="YYYY-MM-DD" name="invoice_date" id="invoiceDate" class="form-control" required>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group col-md-6">
-              <label for="company" class="badge bg-dark my-1">Company :</label>
-              <input type="text" name="company" id="companyName" class="form-control" value="<?php global $companyName ?>">
+              <label for="contact" class="badge bg-dark my-1">Company regarding the invoice:</label>
+              <select type="text" name="company_id" value="">
+                <?php foreach ($invoices->getAllCompanies() as $company) : ?>
+                  <option type="text" id="firstName" class="form-control" value="<?= $company['company_id'] ?>"><?= $company['company_name'] ?></option>
+                <?php endforeach ?>
+              </select>
             </div>
           </div>
 
           <div class="form-row">
             <div class="form-group col-md-6">
               <label for="contact" class="badge bg-dark my-1">Contact Person regarding the invoice :</label>
-              <input type="text" name="contact" id="firstName" class="form-control" value="<?php global $contactName ?>">
+              <select type="text" name="employee_id" value="">
+                <?php foreach ($invoices->getAllContacts() as $contact) : ?>
+                  <option type="text" id="firstName" class="form-control" value="<?= $contact['employee_id'] ?>"><?= $contact['first_name'] . ' ' . $contact['last_name'] ?></option>
+                <?php endforeach ?>
+              </select>
             </div>
           </div>
 
@@ -69,13 +61,27 @@ $contactName= $_POST['first_name'] .' '. $_POST['last_name'];
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" name="invoice" class="btn btn-primary">Submit</button>
+          <?php if (isset($_POST['invoice'])) : ?>
+            <div class="alert alert-success" role="alert">
+              Data Saved !
+            </div>
+          <?php else : ?>
+            <?php if (isset($_POST['invoice'])) : ?>
+              <div class="alert alert-danger" role="alert">
+                Error !
+              </div>
+            <?php endif ?>
+          <?php echo "<script>window.opener.location.reload();</script>";
+            echo "<script>window.close();</script>";
+          endif ?>
         </div>
-
       </form>
     </div>
   </div>
 </div>
-<!-- Modal new contact-->
+
+
+<!-- -------------------------------########### Modal Contact ########### -------------------------------- -->
 
 <div class="modal fade" id="newcontact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -86,17 +92,68 @@ $contactName= $_POST['first_name'] .' '. $_POST['last_name'];
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
+      <form method="POST" action="">
+
+        <div class="modal-body">
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="last_name" class="badge bg-dark my-1">Surename :</label>
+              <input type="text" placeholder="Enter your last name" name="last_name" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="first_name" class="badge bg-dark my-1">First name :</label>
+              <input type="text" placeholder="Enter your first name" name="first_name" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="email" class="badge bg-dark my-1">Email:</label>
+              <input type="email" placeholder="Enter your email address" name="email" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="contact" class="badge bg-dark my-1">Company :</label>
+              <select type="text" name="company_id" value="">
+                <?php foreach ($contacts->getAllOfCompanies() as $contact) : ?>
+                  <option type="text" class="form-control" value="<?= $contact['company_id'] ?>"><?= $contact['company_name'] ?></option>
+                <?php endforeach ?>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="contact" class="btn btn-primary">Submit</button>
+          <?php if (isset($_POST['contact'])) : ?>
+            <div class="alert alert-success" role="alert">
+              Data Saved !
+            </div>
+          <?php else : ?>
+            <?php if (isset($_POST['contact'])) : ?>
+              <div class="alert alert-danger" role="alert">
+                Error !
+              </div>
+            <?php endif ?>
+          <?php echo "<script>window.opener.location.reload();</script>";
+            echo "<script>window.close();</script>";
+          endif ?>
+        </div>
+      </form>
     </div>
   </div>
 </div>
-<!-- Modal new company-->
+
+<!-- -------------------------------########### Modal Company ########### -------------------------------- -->
 
 <div class="modal fade" id="newcompany" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
@@ -107,13 +164,63 @@ $contactName= $_POST['first_name'] .' '. $_POST['last_name'];
           <span aria-hidden="true">&times;</span>
         </button>
       </div>
-      <div class="modal-body">
-        ...
-      </div>
-      <div class="modal-footer">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-        <button type="button" class="btn btn-primary">Save changes</button>
-      </div>
+
+      <form action="" method="POST">
+        <div class="modal-body">
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="companyName" class="badge bg-dark my-1">Company name:</label>
+              <input type="text" placeholder="Enter your Company name" name="company_name" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="VATnumber" class="badge bg-dark my-1">VAT number:</label>
+              <input type="text" placeholder="Enter the VAT number" name="VAT_number" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="country" class="badge bg-dark my-1">Country:</label>
+              <input type="text" placeholder="Enter Your country" name="country" class="form-control" required>
+            </div>
+          </div>
+
+          <div class="form-row">
+            <div class="form-group col-md-6">
+              <label for="contact" class="badge bg-dark my-1">Company type:</label>
+              <select type="text" name="type_id" value="">
+                <?php foreach ($companies->getType() as $type) : ?>
+                  <option type="text" class="form-control" value="<?= $type['type_id'] ?>"><?= $type['company_type'] ?></option>
+                <?php endforeach ?>
+              </select>
+            </div>
+          </div>
+
+        </div>
+
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+          <button type="submit" name="company" class="btn btn-primary">Submit</button>
+        
+        <?php if(isset($_POST['company'])) :?> 
+          <div class="alert alert-success" role="alert">
+              Data Saved !
+            </div>
+        <?php else : ?>
+          <?php if (isset($_POST['company'])) : ?>
+              <div class="alert alert-danger" role="alert">
+                Error !
+              </div>
+            <?php endif ?>
+            <?php echo "<script>window.opener.location.reload();</script>";
+            echo "<script>window.close();</script>";
+          endif ?>
+          </div>
+      </form>
     </div>
   </div>
 </div>
@@ -141,11 +248,14 @@ $contactName= $_POST['first_name'] .' '. $_POST['last_name'];
       <th><?= $invoice['invoice_number'] ?></th>
       <th><?= $invoice['invoice_date'] ?></th>
       <th><?= $invoice['company_name'] ?></th>
-      <th><a href="dashboard.php?id=<?= $invoice['invoice_id'];?>"><button type= "button" name= "editBtn" class="btn btn-info">Edit</button></a></th>
-      <th><a href="dashboard.php?id=<?= $invoice['invoice_id'];?>"><button type= "button" name= "deleteBtn" class="btn btn-danger">delete</button></a></th>
+      <form action=""  method="POST">
+        <th><button type="button" data-toggle="modal" data-target="#newinvoice" name=""  value="<?= $invoice['invoice_id'] ?>" class="btn btn-info">Edit</button></th>
+        <th><button name="deleteId" value="<?= $invoice['invoice_id'] ?>" class="btn btn-danger">Delete</button></th>
+      </form>
   </tr>
 <?php endforeach ?>
 </table>
+
 <p class="mx-4 fs-5">Last contacts :</p>
 <table class="table mx-4">
   <thead>
@@ -162,8 +272,10 @@ $contactName= $_POST['first_name'] .' '. $_POST['last_name'];
       <th><?= $contact['first_name'] . ' ' . $contact['last_name'] ?></th>
       <th><?= $contact['email'] ?></th>
       <th><?= $contact['company_name'] ?></th>
-      <th><a href="dashboard.php?id=<?= $contact['employee_id']?>"><button type= "button" name= "editBtn" class="btn btn-info">Edit</button></a></th>
-      <th><a href="dashboard.php?id=<?= $contact['employee_id']?>"><button type= "button" name= "deleteBtn" class="btn btn-danger">delete</button></a></th>
+      <form action="" method="POST">
+      <th><button type="button" name="editBtn" class="btn btn-info">Edit</button></th>
+      <th><button  name="deleteId" value="<?= $contact['employee_id'] ?>" class="btn btn-danger">Delete</button></th>
+      </form>
   </tr>
 <?php endforeach ?>
 </table>
@@ -185,11 +297,11 @@ $contactName= $_POST['first_name'] .' '. $_POST['last_name'];
       <th><?= $company['VAT_number'] ?></th>
       <th><?= $company['country'] ?></th>
       <th><?= $company['company_type'] ?></th>
-      <th><a href="dashboard.php?id=<?= $company['company_id']?>"><button type= "button" name= "editBtn" class="btn btn-info">Edit</button></a></th>
-      <th><a href="dashboard-php?id=<?=$company['company_id']?>"><button type= "button" name= "deleteBtn" class="btn btn-danger">delete</button></a></th>
+      <form action="" method="POST">
+      <th><button type="update" name="editBtn" class="btn btn-info">Edit</button></th>
+      <th><button  name="deleteId" value="<?= $company['company_id'] ?>" class="btn btn-danger">Delete</button></th>
+      </form>
   </tr>
 <?php endforeach ?>
 </table>
-<?php ?>
-
 <?php require_once("include/footer.php"); ?>

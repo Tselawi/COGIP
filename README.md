@@ -25,4 +25,6 @@
 5. `Design`.
 6. Document for (Invoice, companies, Employees).
 
-## the Digram 
+## Database digram 
+
+![digram image](/src/assets/database.png)

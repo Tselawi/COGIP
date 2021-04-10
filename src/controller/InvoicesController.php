@@ -10,8 +10,6 @@ public function render(){
 
   $invoices = new InvoicesManager();
 
-
-
   require('./view/Invoices.php');
 }
 

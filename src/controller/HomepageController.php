@@ -5,6 +5,7 @@ require_once('./Model/CompaniesManager.php');
 require_once('./Model/InvoicesManager.php');
 require_once('./Model/ContactsManager.php');
 
+
 class HomepageController
 {
 

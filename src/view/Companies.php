@@ -21,7 +21,7 @@
               <form method="POST" action= "">
               <th><button type="submit" class="btn btn-link" name="client"><?= $company['company_name'] ?></button></th>
               <input type="hidden" name="vat" value="<?= $company['VAT_number'] ?>">
-              <input type="hidden" name="type" value="<?= $company['type_id']?>">
+              <input type="hidden" name="type" value="Client">
               <input type="hidden" name="employee_id" value="<?= $company['employee_id']?>">
               <input type="hidden" name="invoice_id" value="<?= $company['invoice_id']?>">
               </form>
@@ -46,7 +46,7 @@
               <form method="POST" action="">
               <th><button type="submit" class="btn btn-link" name="provider"><?= $company['company_name'] ?></a></th>
               <input type="hidden" name="vat" value="<?= $company['VAT_number'] ?>">
-              <input type="hidden" name="type" value="<?= $company['type_id']?>">
+              <input type="hidden" name="type" value="provider">
               <input type="hidden" name="employee_id" value="<?= $company['employee_id']?>">
               <input type="hidden" name="invoice_id" value="<?= $company['invoice_id']?>">
             </form>

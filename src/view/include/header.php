@@ -41,6 +41,9 @@
         <li class="nav-item">
           <a class="nav-link" href="/?page=contacts">Contacts</a>
         </li>
+        <li class="nav-item">
+          <a class="nav-link" aria-current="page" href="/?page=register">Login</a>
+        </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-target="#"
           id="navbarDropdownMenuLink" role="button"
@@ -49,13 +52,13 @@
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
             <li><a class="dropdown-item"  href="/?page=dashboard">Dashboard</a></li>
-            <li><a class="dropdown-item"  href="#">New contact</a></li>
-            <li><a class="dropdown-item"  href="#">New invoice</a></li>
-            <li><a class="dropdown-item"  href="#">New company</a></li>
+            <li><a class="dropdown-item"  href="/?page=addcontact">New contact</a></li>
+            <li><a class="dropdown-item"  href="/?page=addinvoice">New invoice</a></li>
+            <li><a class="dropdown-item"  href="/?page=addcompany">New company</a></li>
           </ul>
         </li>
       </ul>
     </div>
   </div>
 </nav>
-  </header>
+</header>
