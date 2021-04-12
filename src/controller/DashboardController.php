@@ -23,9 +23,7 @@ class DashboardController
       }
     }
     if (isset($_POST['deleteId'])) {
-      if ($invoices->deleteInvoice()) {
-        $_POST['deleteId'];
-      }
+      $invoices->deleteInvoice($_POST['deleteId']);
     }
 
     $contacts = new ContactsManager();
@@ -40,14 +38,13 @@ class DashboardController
       }
     }
     if (isset($_POST['deleteId'])) {
-      if ($contacts->deleteContact()) {
-        $_POST['deleteId'];
-      }
+      $contacts->deleteContact($_POST['deleteId']);
     }
 
     $companies = new CompaniesManager();
-    if (isset($_POST['company'])) {
+    
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if (isset($_POST['company'])) {
         $companies->addCompany(
           $_POST['company_name'],
           $_POST['country'],
@@ -57,13 +54,31 @@ class DashboardController
       }
     }
     if (isset($_POST['deleteId'])) {
-      if ($companies->deleteCompany()) {
-        $_POST['deleteId'];
+      $companies->deleteCompany($_POST['deleteId']);
+    }
+   
+     
+      if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+        if(isset($_POST['companyUpdate'])){
+          $compId=(int)$_POST['company_id'];
+          var_dump($compId);
+          $companies->updateCompany(
+            $_POST['company_name'],
+            $_POST['country'],
+            (int)$_POST['VAT_number'],
+            $compId
+          );
       }
     }
-
-
-
+    
+  
+    
+    
+  // if(isset($_POST['companyUpdate'])){
+  //   $companies->editCompany($_POST['company_id']);
+  // }    
+    
+    
     require_once('./view/Dashboard.php');
   }
 }

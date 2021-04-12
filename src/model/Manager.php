@@ -7,7 +7,7 @@ class Manager
     {
         try{
             // $db = new PDO("mysql:host=remotemysql.com;dbname=dtBgVDs3Pl;port=3306","dtBgVDs3Pl","gemKW5z2we");
-            $db = new PDO("mysql:host=mysql;dbname=dtBgVDs3Pl;port=3306","root","root");
+            $db = new PDO("mysql:host=mysql;dbname=COGIP;port=3306","root","root");
             $db->setAttribute(PDO::ATTR_ERRMODE, PDO::ERRMODE_EXCEPTION);
             $db->setAttribute(PDO::ATTR_DEFAULT_FETCH_MODE, PDO::FETCH_ASSOC);
             return $db;

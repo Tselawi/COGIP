@@ -13,9 +13,9 @@
       $db = $this->connectDb();
 
       try {
-        $response = $db->prepare('SELECT * FROM employees
-        JOIN companies on
-        employees.employee_id=companies.company_id
+        $response = $db->prepare('SELECT * FROM employees e
+        JOIN companies c on
+        e.company_id=c.company_id
         ORDER by employee_id DESC limit 5');
         $response->execute();
       } catch (Exception $e) {
@@ -104,12 +104,11 @@
     }
 
     # delete contacts
-    public function deleteContact()
+    public function deleteContact($id)
     {
       $db = $this->connectDb();
       try {
-        $id = $_POST['deleteId'];
-        $response = $db->prepare("DELETE FROM employees
+        $response = $db->prepare("DELETE FROM employees 
           WHERE employee_id= $id");
         $response->execute();
       } catch (Exception $e) {

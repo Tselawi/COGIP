@@ -137,11 +137,10 @@ class CompaniesManager extends Manager
   }
 
   # delete company
-public function deleteCompany()
+public function deleteCompany($id)
 {
 $db = $this->connectDb();
 try{
-      $id=$_POST['deleteId'];
         $response = $db->prepare("DELETE FROM companies
           where company_id= $id");
         $response->execute();
@@ -151,5 +150,44 @@ try{
     }
     return $response;
   }
+
+  #update company
+public function updateCompany($companyName, $country, $vatNumber, $companyId){
+  $db= $this->connectDb();
+  try{
+    $response=$db->prepare("UPDATE companies  SET 
+    company_name=:companyName, 
+    country=:country, 
+    VAT_number=:vatNumber 
+    WHERE company_id = :companyId");
+    $response->execute(array(
+      'companyName'=>$companyName,
+       'country'=>$country,
+       'vatNumber'=>$vatNumber,
+       'companyId'=>$companyId
+    )
+      
+    );
+     return $response->fetch();
+  }catch(Exception $e){
+    echo $e->getMessage();
+    exit();
+  }
+}
+
+// public function editCompany($companyId){
+//   $db= $this->connectDb();
+//   try{
+//     $response=$db->prepare("SELECT * FROM companies
+//      WHERE company_id=:companyId");
+//     $response->execute(
+//       ['companyId'=>$companyId]
+//     );
+//     // return $response;
+//   }catch(Exception $e){
+//     echo $e->getMessage();
+//     exit();
+//     }
+//   }
 
 }
