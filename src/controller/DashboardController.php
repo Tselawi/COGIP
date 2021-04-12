@@ -60,7 +60,7 @@ class DashboardController
      
       if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         if(isset($_POST['companyUpdate'])){
-          $compId=(int)$_POST['company_id'];
+          $compId=$_POST['company_id'];
           var_dump($compId);
           $companies->updateCompany(
             $_POST['company_name'],
