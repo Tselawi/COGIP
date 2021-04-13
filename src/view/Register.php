@@ -42,7 +42,15 @@
         </div>
         <form action="" method="POST">
           <div class="modal-body">
-
+          <?php if (isset($_POST['username'])) : ?>
+            <div class="alert alert-success" role="alert">
+            Welcome <?= $_POST['username']; ?>
+            </div>
+          <?php else : ?>
+            <div class="alert alert-danger" role="alert">
+            check you inputs
+            </div>
+            <?php endif ?> 
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="username" class="badge bg-dark my-1">username:</label>

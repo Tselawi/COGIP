@@ -24,12 +24,13 @@ public function signUp($userName, $password){
 public function signIn($userName, $password){
       $db=$this->connectDb();
       try{
-            $response=$db->prepare("");
+            $response=$db->prepare("SELECT * FROM login 
+            WHERE username = :username");
             $response->execute([
                   'username'=>$userName,
                   'password'=>$password
             ]);
-            return $response;
+            $response->fetch();
       }catch(Exception $e){
             echo $e->getMessage();
             exit();

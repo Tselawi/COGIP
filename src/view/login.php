@@ -40,9 +40,17 @@
           <span aria-hidden="true">&times;</span>
         </button> -->
         </div>
-        <form action="register.php" method="POST">
+        <form action="" method="POST">
           <div class="modal-body">
-
+          <?php if ($_POST['username'] && $_POST['password'] === $_POST['confirmPassword']) : ?>
+            <div class="alert alert-success" role="alert">
+            Hello <?= $_POST['username']; ?>
+            </div>
+          <?php else : ?>
+            <div class="alert alert-danger" role="alert">
+            check you inputs
+            </div>
+            <?php endif ?>    
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="username" class="badge bg-dark my-1">username:</label>
@@ -53,24 +61,14 @@
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="password" class="badge bg-dark my-1">Password:</label>
-                <input type="password" placeholder="Enter your password" name="password_1" class="form-control" required>
+                <input type="password" placeholder="Enter your password" name="password" class="form-control" required>
               </div>
             </div>
             <div class="modal-footer">
-              <button type="submit" name="reg_user" class="btn btn-primary">Login</button>
+              <button type="submit" name="login" class="btn btn-primary">Login</button>
             </div>
         </form>
       </div>
     </div>
   </section>
-
-<?php
-  if($manager) :?>
-
-  <?php elseif($admin) :?>
-
-  <?php else : ?>
-
-  <?php endif ?>
-  
   <?php require_once("include/footer.php"); ?>
