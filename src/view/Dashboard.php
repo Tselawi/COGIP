@@ -8,7 +8,7 @@
 
 <!-- -------------------------------########### Modal invoice ########### -------------------------------- -->
 
-<div class="modal fade" id="newinvoice editinvoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+<div class="modal fade" id="newinvoice" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header">

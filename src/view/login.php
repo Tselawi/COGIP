@@ -42,15 +42,16 @@
         </div>
         <form action="" method="POST">
           <div class="modal-body">
-          <?php if ($_POST['username'] && $_POST['password'] === $_POST['confirmPassword']) : ?>
+          <?php if (isset($_POST['username'])) : ?>
             <div class="alert alert-success" role="alert">
-            Hello <?= $_POST['username']; ?>
+            Hello <?= $_POST['username'] ?>
             </div>
           <?php else : ?>
             <div class="alert alert-danger" role="alert">
             check you inputs
             </div>
-            <?php endif ?>    
+            <?php endif ?>  
+           
             <div class="form-row">
               <div class="form-group col-md-6">
                 <label for="username" class="badge bg-dark my-1">username:</label>

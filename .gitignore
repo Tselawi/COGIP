@@ -2,3 +2,6 @@ node_modules/
 DS_Store/
 cogip.sql
 
+docker-compose.yml
+dockerfile
+cogip.sql
