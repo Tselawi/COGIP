@@ -14,7 +14,7 @@ require_once('controller/AddInvoiceDatabase.php');
 require_once('controller/RegisterController.php');
 require_once('controller/LoginController.php');
 
-$controller = new HomepageController();
+// $controller = new HomepageController();
 
 // if(isset($_GET['page']) && $_GET['page'] === 'register'){
 //   $controller= new RegisterController();
