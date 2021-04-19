@@ -1,7 +1,7 @@
 <?php require_once("include/header.php"); ?>
 
 <!-- -------------------------------########### Modal Contact ########### -------------------------------- -->
-<p class="fs-6 mx-4  my-5 btn btn-outline-dark"><a href="/?page=dashboard"> Back to Dashboard</a> </p>
+<p class="fs-6 mx-4  my-5 btn btn-outline-dark"><a href="/src/?page=dashboard"> Back to Dashboard</a> </p>
 <!-- <div class="modal fade" id="newcontact" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true"> -->
   <div class="modal-dialog" role="document">
     <div class="modal-content">
