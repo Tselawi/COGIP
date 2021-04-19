@@ -20,7 +20,7 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
   <div class="container-fluid">
-    <a class="navbar-brand mx-3" href="/index.php">COGIP</a>
+    <a class="navbar-brand mx-3" href="/src/index.php">COGIP</a>
     <button class="navbar-toggler" type="button"
     data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown"
     aria-controls="navbarNavDropdown" aria-expanded="false"
@@ -30,19 +30,19 @@
     <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
       <ul class="navbar-nav">
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/index.php">Home</a>
+          <a class="nav-link" aria-current="page" href="/src/index.php">Home</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/?page=invoices">Invoices</a>
+          <a class="nav-link" href="/src/?page=invoices">Invoices</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/?page=companies">Companies</a>
+          <a class="nav-link" href="/src/?page=companies">Companies</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" href="/?page=contacts">Contacts</a>
+          <a class="nav-link" href="/src/?page=contacts">Contacts</a>
         </li>
         <li class="nav-item">
-          <a class="nav-link" aria-current="page" href="/?page=register">Login</a>
+          <a class="nav-link" aria-current="page" href="/src/?page=register">Login</a>
         </li>
         <li class="nav-item dropdown">
           <a class="nav-link dropdown-toggle" href="#" data-target="#"
@@ -51,10 +51,10 @@
             Admin
           </a>
           <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <li><a class="dropdown-item"  href="/?page=dashboard">Dashboard</a></li>
-            <li><a class="dropdown-item"  href="/?page=addcontact">New contact</a></li>
-            <li><a class="dropdown-item"  href="/?page=addinvoice">New invoice</a></li>
-            <li><a class="dropdown-item"  href="/?page=addcompany">New company</a></li>
+            <li><a class="dropdown-item"  href="/src/?page=dashboard">Dashboard</a></li>
+            <li><a class="dropdown-item"  href="/src/?page=addcontact">New contact</a></li>
+            <li><a class="dropdown-item"  href="/src/?page=addinvoice">New invoice</a></li>
+            <li><a class="dropdown-item"  href="/src/?page=addcompany">New company</a></li>
           </ul>
         </li>
       </ul>
