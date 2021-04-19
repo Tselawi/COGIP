@@ -1,7 +1,7 @@
 <?php
-declare(strict_types=1);
+// declare(strict_types=1);
 
-session_start();
+// session_start();
 
 require_once('controller/HomepageController.php');
 require_once('controller/InvoicesController.php');
