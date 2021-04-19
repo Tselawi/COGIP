@@ -20,14 +20,14 @@
   <header>
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
       <div class="container-fluid">
-        <a class="navbar-brand mx-3" href="/index.php">COGIP</a>
+        <a class="navbar-brand mx-3" href="/src/index.php">COGIP</a>
         <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNavDropdown" aria-controls="navbarNavDropdown" aria-expanded="false" aria-label="Toggle navigation">
           <span class="navbar-toggler-icon"></span>
         </button>
         <div class="collapse navbar-collapse d-flex justify-content-center" id="navbarNavDropdown">
           <ul class="navbar-nav">
             <li class="nav-item">
-              <a class="nav-link" aria-current="page" href="/index.php">Home</a>
+              <a class="nav-link" aria-current="page" href="/src/index.php">Home</a>
             </li>
           </ul>
   </header>
@@ -75,7 +75,7 @@
               <button type="submit" name="reg_user" class="btn btn-primary">Register</button>
             </div>
             <p>
-              Already a member? <a href="/?page=login">Sign in</a>
+              Already a member? <a href="/src/?page=login">Sign in</a>
             </p>
         </form>
       </div>
