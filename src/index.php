@@ -44,7 +44,7 @@ if (isset($_GET['page']) && $_GET['page'] === 'addinvoice') {
   $controller = new AddInvoiceDatabase();
 }
 
-$controller->render();
+// $controller->render();
 //  echo "<pre>";
 //  var_dump($_GET);
 //  echo "</pre>";
@@ -54,3 +54,5 @@ $controller->render();
 //   echo "<pre>";
 //   var_dump($_SESSION);
 //    echo "</pre>";
+?>
+<h1>hello</h1>
