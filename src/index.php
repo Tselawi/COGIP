@@ -1,20 +1,20 @@
-<!-- 
-// declare(strict_types=1);
+<?php
+declare(strict_types=1);
 
-// // session_start();
+session_start();
 
-// require_once('controller/HomepageController.php');
-// require_once('controller/InvoicesController.php');
-// require_once('controller/CompaniesController.php');
-// require_once('controller/ContactsController.php');
-// require_once('controller/DashboardController.php');
-// require_once('controller/AddCompanyDatabase.php');
-// require_once('controller/AddContactDatabase.php');
-// require_once('controller/AddInvoiceDatabase.php');
-// require_once('controller/RegisterController.php');
-// require_once('controller/LoginController.php');
+require_once('controller/HomepageController.php');
+require_once('controller/InvoicesController.php');
+require_once('controller/CompaniesController.php');
+require_once('controller/ContactsController.php');
+require_once('controller/DashboardController.php');
+require_once('controller/AddCompanyDatabase.php');
+require_once('controller/AddContactDatabase.php');
+require_once('controller/AddInvoiceDatabase.php');
+require_once('controller/RegisterController.php');
+require_once('controller/LoginController.php');
 
-// $controller = new HomepageController();
+$controller = new HomepageController();
 
 // if(isset($_GET['page']) && $_GET['page'] === 'register'){
 //   $controller= new RegisterController();
@@ -54,5 +54,5 @@
 //   echo "<pre>";
 //   var_dump($_SESSION);
 //    echo "</pre>"; -->
-
+?>
 <h1>hello</h1>
