@@ -1,6 +1,6 @@
 <?php
 
-require_once('./Model/InvoicesManager.php');
+require_once('./model/InvoicesManager.php');
 
 
 class AddInvoiceDatabase

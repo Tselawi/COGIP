@@ -1,6 +1,6 @@
 <?php
 
-require_once('./Model/RegisterManager.php');
+require_once('./model/RegisterManager.php');
 
 class RegisterController
 {

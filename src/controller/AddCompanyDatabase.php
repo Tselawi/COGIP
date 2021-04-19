@@ -1,6 +1,6 @@
 <?php
 
-require_once('./Model/CompaniesManager.php');
+require_once('./model/CompaniesManager.php');
 
 
 class AddCompanyDatabase{

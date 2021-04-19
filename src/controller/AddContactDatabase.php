@@ -1,6 +1,6 @@
 <?php
 
-require_once('./Model/ContactsManager.php');
+require_once('./model/ContactsManager.php');
 
 
 class AddContactDatabase{
