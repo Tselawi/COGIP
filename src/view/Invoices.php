@@ -3,7 +3,7 @@
 
         <h2 class="my-5 d-flex justify-content-center">COGIP : List of invoices</h2>
 
-        <p class="fs-6 mx-4 btn btn-outline-dark"><a href="../"> Back to homepage</a> </p>
+        <p class="fs-6 mx-4 btn btn-outline-dark"><a href="/src/index.php"> Back to homepage</a> </p>
 
         <table class="my-4 table mx-4">
           <thead>
