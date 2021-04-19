@@ -11,17 +11,17 @@ require_once('controller/DashboardController.php');
 require_once('controller/AddCompanyDatabase.php');
 require_once('controller/AddContactDatabase.php');
 require_once('controller/AddInvoiceDatabase.php');
-// require_once('controller/RegisterController.php');
-// require_once('controller/LoginController.php');
+require_once('controller/RegisterController.php');
+require_once('controller/LoginController.php');
 
 $controller = new HomepageController();
 
-// if(isset($_GET['page']) && $_GET['page'] === 'register'){
-//   $controller= new RegisterController();
-// }
-// if(isset($_GET['page']) && $_GET['page'] === 'login'){
-//   $controller= new LoginController();
-// }
+if(isset($_GET['page']) && $_GET['page'] === 'register'){
+  $controller= new RegisterController();
+}
+if(isset($_GET['page']) && $_GET['page'] === 'login'){
+  $controller= new LoginController();
+}
 if (isset($_GET['page']) && $_GET['page'] === 'invoices') {
   $controller = new InvoicesController();
 }
