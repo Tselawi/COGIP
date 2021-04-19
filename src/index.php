@@ -14,7 +14,7 @@ require_once('controller/HomepageController.php');
 // require_once('controller/RegisterController.php');
 // require_once('controller/LoginController.php');
 
-// $controller = new HomepageController();
+$controller = new HomepageController();
 
 // if(isset($_GET['page']) && $_GET['page'] === 'register'){
 //   $controller= new RegisterController();
@@ -44,7 +44,7 @@ require_once('controller/HomepageController.php');
 //   $controller = new AddInvoiceDatabase();
 // }
 
-// $controller->render();
+$controller->render();
 //  echo "<pre>";
 //  var_dump($_GET);
 //  echo "</pre>";
