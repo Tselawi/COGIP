@@ -159,15 +159,14 @@ public function updateCompany($companyName, $country, $vatNumber, $companyId){
     company_name=:companyName, 
     country=:country, 
     VAT_number=:vatNumber 
-    WHERE company_id = :companyId");
-    $response->execute(array(
+    WHERE company_id =:companyId");
+    $response->execute([
       'companyName'=>$companyName,
        'country'=>$country,
        'vatNumber'=>$vatNumber,
        'companyId'=>$companyId
-    )
-      
-    );
+    ]);
+    
      return $response->fetch();
   }catch(Exception $e){
     echo $e->getMessage();

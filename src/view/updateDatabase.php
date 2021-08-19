@@ -199,6 +199,7 @@
         <div class="modal-footer">
           <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
           <button type="submit" name="company_id" value="<?= $company['company_id'] ?>" class="btn btn-primary">Update</button>
+          <input type="hidden" name="companyUpdate" >
         
         <?php if(isset($_POST['company_id'])) :?> 
           <div class="alert alert-success" role="alert">
